@@ -13,4 +13,15 @@ const app = express()
  app.use(express.urlencoded({ extended: true, limit: "16kb"}))
  app.use(express.static("public"))
  app.use(cookieParser())
-export default app
+
+
+//routers import
+
+ import userRouter from "./routers/user.routers.js"
+
+// routes declartion
+app.use("/api/v1/users", userRouter)  // "/api" is the prefix for all routes
+// "v1" is versioning
+//http://localhost:3000/api/v1/users/register
+
+export {app}
